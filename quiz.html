@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="con">
+        <div class="con1">
+       <p class = "questions">1. You can have ice cream ______ you finish your dinner.</p>
+        <input type = "radio" id = "r5" name = "question1" value = "when"> when<br> 
+        <input type = "radio" id = "r4" name = "question1" value = "but"> but<br>    
+        <input type = "radio" id = "r3" name = "question1" value = "and"> and<br>   
+        <input type = "radio" id = "r2" name = "question1" value = "or"> or<br>
+        <input type = "radio" id = "r1" name = "question1" value = "while"> while<br>
+        </p>
+        <p>
+            <span class="output" id="txt0"></span>
+        </p><br>
+        <p class = "questions">2. The milk is ______ the refrigerator</p>
+
+        <input type = "radio" id = "rr5" name = "question2" value = "to"> to<br> 
+        <input type = "radio" id = "rr4" name = "question2" value = "of">of<br>    
+        <input type = "radio" id = "rr3" name = "question2" value = "at"> at<br>   
+        <input type = "radio" id = "rr2" name = "question2" value = "in"> in<br>
+        <input type = "radio" id = "rr1" name = "question2" value = "from"> from<br>
+        </p>
+        <p>
+            <span class="output" id="txt1"></span>
+        </p><br>
+        <p class="questions">
+            3. The world is ___________ of people from all strata of society.
+            <div id="label"></div>
+            <select id="mySelect">
+                <option value="">Select</option>
+                <option value="madeup" >made up</option>
+                <option value="madeby" >made by</option>
+                <option value="madein" >made in</option>
+            
+            </select>
+        </p>
+
+        <p>
+            <span class="output" id="txt2"></span>
+        </p><br>
+        <p class="questions">
+        4.  The earth _____________in its own axis for a very long time. 
+        <div id="label"></div>
+        <select id="mySelect1">
+                <option value="">Select</option>
+                <option value="hasbeen" >has been rotating</option>
+                <option value="has" >has rotated</option>
+                <option value="have" >have been rotating</option>
+            
+            </select>
+        </p>
+        <p><span class="output" id="txt3"></span>
+        </p>
+        <button type="submit" onclick="copy()" >Submit</button>
+        <p id = "number_correct"></p>
+        </div>
+    </div>
+    <script>
+        function copy() {
+          // var ques1 = document.getElementById("r").value;
+           //var a=document.getElementById('rr2').checked
+           //alert(a);
+	       // var ques2 = document.getElementById("rr").value;
+            
+            var correct=0;
+            if (document.getElementById('r1').checked) {
+                document.getElementById("txt0").innerHTML="Right Answer";
+                correct++;
+            } else {
+                document.getElementById("txt0").innerHTML="Wrong Answer. The right answer is 'while'";
+            }
+            if (document.getElementById('rr2').checked) {
+                document.getElementById("txt1").innerHTML="Right Answer";
+                correct++;
+            } else {
+                document.getElementById("txt1").innerHTML="Wrong Answer. The right answer is 'in'";
+            }   
+
+            var element = document.getElementById("mySelect");
+            var selected = element.options[element.selectedIndex].value;
+            if(selected == "madeup"){
+                document.getElementById("txt2").innerHTML="Right Answer";  
+                correct++;  
+            }  else {
+                document.getElementById("txt2").innerHTML="Wrong Answer. The right answer is 'made up'";
+            }        
+            var element1 = document.getElementById("mySelect1");
+            var selected1 = element1.options[element1.selectedIndex].value;
+            if(selected1 == "hasbeen"){
+                document.getElementById("txt3").innerHTML="Right Answer";
+                correct++; 
+            } else {
+                document.getElementById("txt3").innerHTML="Wrong Answer. The right answer is 'has been rotating'";
+            } 
+            document.getElementById("number_correct").innerHTML = "You got " + correct + " out of 4.";
+          
+        }
+    </script>
+</body>
+</html>
